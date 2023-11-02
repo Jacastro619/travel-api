@@ -1,22 +1,25 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes, Model } = require("sequelize");
 
-module.exports = (sequelize) => {
-    class Location extends Model {}
+class Location extends Model {}
 
-    Location.init({
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
-    }, {
-        sequelize,
-        modelName: 'Location'
-    });
+Location.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    modelName: "location",
+  }
+);
 
-    return Location;
-};
+module.exports = Location;
